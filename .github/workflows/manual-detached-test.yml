@@ -1,5 +1,6 @@
 name: Test detached mode
 on: 
+  
   push:
 jobs:
   test:
