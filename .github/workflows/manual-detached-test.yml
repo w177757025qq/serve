@@ -1,0 +1,21 @@
+name: Test detached mode
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          limit-access-to-actor: true
+          detached: true
+          connect-timeout-seconds: 60
+      - run: |
+          echo "A busy loop"
+          for value in $(seq 10)
+          do
+            echo "Value: $value"
+            echo "value $value" >>counter.txt
+            sleep 1
+          done
