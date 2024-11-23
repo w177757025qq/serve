@@ -4,7 +4,7 @@ const { resolve, join } = require("path");
 const ACTION_PATH = resolve(__dirname, "..");
 
 try {
-  execSync(join(ACTION_PATH, "src", `main.sh`), {
+  execSync(join(ACTION_PATH, "src", `post.sh`), {
     env: { ...process.env, ACTION_PATH },
     stdio: "inherit",
   });

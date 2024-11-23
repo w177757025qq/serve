@@ -1,54 +1,53 @@
-name: 'Debugging with tmate'
-description: 'Debug your GitHub Actions Environment interactively by using SSH or a Web shell'
-branding:
-  icon: terminal
-author: 'Max Schmitt'
-runs:
-  using: 'node20'
-  main: 'lib/index.js'
-  post: 'lib/index.js'
-  post-if: '!cancelled()'
+name: ngrok-ssh
+description: SSH into your GitHub Actions runner with ngrok.
 inputs:
-  sudo:
-    description: 'If apt should be executed with sudo or without'
+  BASH_PROFILE:
+    description: "Path to a text file to append to the host's .bash_profile."
     required: false
-    default: 'auto'
-  install-dependencies:
-    description: 'Whether or not to install dependencies for tmate on linux (openssh-client, xz-utils)'
+  NGROK_AUTHTOKEN:
+    description: "Your ngrok auth token, required for TCP tunnels."
+    required: true
+  NGROK_CONFIG_FILE:
+    description: "Path to your custom ngrok config file, which will be merged with the default ngrok-ssh config file. See https://ngrok.com/docs/agent/config/#config-file-merging for more information."
     required: false
-    default: 'true'
-  limit-access-to-actor:
-    description: 'Whether to authorize only the public SSH keys of the user triggering the workflow (defaults to true if the GitHub profile of the user has a public SSH key)'
+  SSH_PORT:
+    description: "SSH port to use with ngrok."
     required: false
-    default: 'auto'
-  detached:
-    description: 'In detached mode, the workflow job will continue while the tmate session is active'
+    default: 2222
+  SSH_CLIENT_PUBLIC_KEY:
+    description: "Public key of an SSH client to add to the authorized_keys file."
     required: false
-    default: 'false'
-  connect-timeout-seconds:
-    description: 'How long in seconds to wait for a connection to be established'
+  SSH_HOST_PRIVATE_KEY:
+    description: "Private key to use for the SSH host."
     required: false
-    default: '600'
-  tmate-server-host:
-    description: 'The hostname for your tmate server (e.g. ssh.example.org)'
+  SSH_HOST_PUBLIC_KEY:
+    description: "Public key to use for the SSH host."
     required: false
-    default: ''
-  tmate-server-port:
-    description: 'The port for your tmate server (e.g. 2222)'
+  USE_GITHUB_ACTOR_KEY:
+    description: "Whether to add the GITHUB_ACTOR's public keys to the authorized_keys file."
     required: false
-    default: ''
-  tmate-server-rsa-fingerprint:
-    description: 'The RSA fingerprint for your tmate server'
+    default: true
+  WAIT_FOR_CONNECTION:
+    description: "Whether to wait for an SSH connection before allowing the workflow run to proceed."
     required: false
-    default: ''
-  tmate-server-ed25519-fingerprint:
-    description: 'The ed25519 fingerprint for your tmate server'
-    required: false
-    default: ''
-  github-token:
-    description: >
-      Personal access token (PAT) used to call into GitHub's REST API.
-      We recommend using a service account with the least permissions necessary.
-      Also when generating a new PAT, select the least scopes necessary.
-      [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
-    default: ${{ github.token }}
+    default: false
+outputs:
+  NGROK_TUNNELS:
+    description: "JSON representation of provisioned ngrok tunnels from the /api/tunnels endpoint, including any additional configured tunnels."
+  SSH_HOSTNAME:
+    description: "The hostname of the SSH server."
+  SSH_HOST_PUBLIC_KEY:
+    description: "The public key of the SSH host."
+  SSH_PORT:
+    description: "The public port of the SSH server."
+  SSH_USER:
+    description: "The username of the SSH user."
+
+runs:
+  using: "node20"
+  main: "src/main.js"
+  post: "src/post.js"
+
+branding:
+  icon: "terminal"
+  color: "green"
