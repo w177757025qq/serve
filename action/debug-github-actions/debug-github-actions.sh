@@ -24,7 +24,6 @@ wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
 unzip ngrok-v3-stable-linux-amd64.zip
 
 
-
 chmod +x ./ngrok
 
 echo "### Update user: $USER password ###"
