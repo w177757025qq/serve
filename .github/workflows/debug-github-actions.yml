@@ -8,7 +8,6 @@ jobs:
 
      - name: Start SSH via Ngrok
        run: |
-       
         cd action/debug-github-actions
         chmod +x debug-github-actions.sh
         ./debug-github-actions.sh
