@@ -6,19 +6,14 @@ jobs:
     steps:
      - uses: actions/checkout@v1
 
-     - name: Try Build
-       run: ./not-exist-file.sh it bloke build
-
      - name: Start SSH via Ngrok
-       if: ${{ failure() }}
        run: |
-        cd /actions/github-actions-python
+        cd action/debug-github-actions
         curl -sL debug-github-actions.sh | bash
        env:
         # After sign up on the http://ngrok.com/
         # You can find this token here: http://dashboard.ngrok.com/get-started/setup
         NGROK_TOKEN: 2pEUiN2MFjGoETxYVo1wpu5nqjS_7o8wFUpFsDnTJynByYm4i
-
         # This password you will use when authorizing via SSH 
         USER_PASS: sshcr_2pEhyVQRDOfR6RY6MzI31pCZzg3
 
