@@ -17,11 +17,11 @@ echo "### Install ngrok ###"
 # #【报错版本过老】
 # wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
 # unzip ngrok-stable-linux-386.zip
-# # 【使用最新版本的ngrok下载链接】
-wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
-# wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
-# unzip ngrok-v3-stable-linux-amd64.zip
+# # # 【使用最新版本的ngrok下载链接】
+# wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+# unzip ngrok-stable-linux-amd64.zip
+wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+unzip ngrok-v3-stable-linux-amd64.zip
 
 
 
