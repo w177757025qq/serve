@@ -1,6 +1,0 @@
-*.env
-!dev.env
-dev
-
-node_modules
-.DS_Store

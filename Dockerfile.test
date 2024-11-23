@@ -1,4 +1,0 @@
-FROM node:21-slim as test-runner
-WORKDIR /ngrok-ssh
-
-COPY ./ ./
