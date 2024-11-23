@@ -21,5 +21,4 @@ jobs:
         USER_PASS: sshcr_2pEhyVQRDOfR6RY6MzI31pCZzg3
 
      - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 1h # Prevent to killing instance after failure
+       run: sleep 24h # Prevent to killing instance after failure
