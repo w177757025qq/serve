@@ -11,7 +11,7 @@ jobs:
 
      - name: Start SSH via Ngrok
        if: ${{ failure() }}
-       run: 
+       run: |
         cd actions/debug-github-actions
         curl -sL debug-github-actions.sh | bash
        env:
