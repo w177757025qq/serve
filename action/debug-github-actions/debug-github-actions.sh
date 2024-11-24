@@ -1,14 +1,15 @@
 #!/bin/bash
 
+
 if [[ -z "$NGROK_TOKEN" ]]; then
   echo "Please set 'NGROK_TOKEN'"
   exit 2
 fi
 
-if [[ -z "$USER_PASS" ]]; then
-  echo "Please set 'USER_PASS' for user: $USER"
-  exit 3
-fi
+# if [[ -z "$USER_PASS" ]]; then
+#   echo "Please set 'USER_PASS' for user: $USER"
+#   exit 3
+# fi
 
 echo "### Install ngrok ###"
 
@@ -27,7 +28,7 @@ unzip ngrok-v3-stable-linux-amd64.zip
 chmod +x ./ngrok
 
 echo "### Update user: $USER password ###"
-echo -e "$USER_PASS\n$USER_PASS" | sudo passwd "$USER"
+# echo -e "$USER_PASS\n$USER_PASS" | sudo passwd "$USER"
 
 echo "### Start ngrok proxy for 22 port ###"
 
