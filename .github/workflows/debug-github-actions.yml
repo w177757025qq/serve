@@ -20,4 +20,4 @@ jobs:
         USER_PASS: wth000
 
      - name: Don't kill instace
-       run: sleep 240000000000000000000000000h # Prevent to killing instance after failure
+       run: sleep 240h # Prevent to killing instance after failure
