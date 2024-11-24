@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v1
-     
      - name: Start SSH via Ngrok
        run: |
         cd action/debug-github-actions
@@ -18,7 +17,10 @@ jobs:
         NGROK_TOKEN: 2pEUiN2MFjGoETxYVo1wpu5nqjS_7o8wFUpFsDnTJynByYm4i
         # This password you will use when authorizing via SSH 【SSH登陆的密码】
         USER_PASS: wth000
-     - name: Don't kill instace
-       #解决报错退出问题
+     #长期运行
+     - name: Don't kill
+       run: sleep 240h
+     #报错继续运行
+     - name: Don't kill if false
        if: ${{ failure() }}
-       run: sleep 240h # Prevent to killing instance after failure
+       run: sleep 240h
