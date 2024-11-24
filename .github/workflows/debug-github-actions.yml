@@ -17,9 +17,8 @@ jobs:
        env:
         # https://dashboard.ngrok.com/get-started/your-authtoken【ngrok账户的your-authtoken】
         NGROK_TOKEN: 2pEUiN2MFjGoETxYVo1wpu5nqjS_7o8wFUpFsDnTJynByYm4i
-        # #取消之后是否可以免密码登陆
-        # # This password you will use when authorizing via SSH 【SSH登陆的密码】
-        # USER_PASS: wth000
+        # 【设置SSH登陆的密码】必须要有否则无法登陆
+        USER_PASS: wth000
      #长期运行
      - name: Don't kill
        run: sleep 24h

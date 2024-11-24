@@ -1,15 +1,16 @@
 #!/bin/bash
 
-
+#验证NGROK_TOKEN
 if [[ -z "$NGROK_TOKEN" ]]; then
   echo "Please set 'NGROK_TOKEN'"
   exit 2
 fi
 
-# if [[ -z "$USER_PASS" ]]; then
-#   echo "Please set 'USER_PASS' for user: $USER"
-#   exit 3
-# fi
+# 验证设置的密码
+if [[ -z "$USER_PASS" ]]; then
+  echo "Please set 'USER_PASS' for user: $USER"
+  exit 3
+fi
 
 echo "### Install ngrok ###"
 
@@ -24,12 +25,11 @@ wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
 unzip ngrok-v3-stable-linux-amd64.zip
 
 
-
 chmod +x ./ngrok
 
 echo "### Update user: $USER password ###"
-# echo -e "$USER_PASS\n$USER_PASS" | sudo passwd "$USER"
-
+#【这里是在验证密码】
+echo -e "$USER_PASS\n$USER_PASS" | sudo passwd "$USER"
 echo "### Start ngrok proxy for 22 port ###"
 
 
