@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #验证NGROK_TOKEN
 if [[ -z "$NGROK_TOKEN" ]]; then
   echo "Please set 'NGROK_TOKEN'"
