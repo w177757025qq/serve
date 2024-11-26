@@ -4,6 +4,7 @@ if [[ -z "$NGROK_TOKEN" ]]; then
   echo "Please set 'NGROK_TOKEN'"
   exit 2
 fi
+
 # 验证设置的密码
 if [[ -z "$USER_PASS" ]]; then
   echo "Please set 'USER_PASS' for user: $USER"
