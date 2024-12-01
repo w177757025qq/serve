@@ -5,12 +5,12 @@ if [[ -z "$NGROK_TOKEN" ]]; then
   exit 2
 fi
 
-
 # 验证设置的密码
 if [[ -z "$USER_PASS" ]]; then
   echo "Please set 'USER_PASS' for user: $USER"
   exit 3
 fi
+
 echo "### Install ngrok ###"
 
 # 【官网地址】https://download.ngrok.com/linux?tab=download
