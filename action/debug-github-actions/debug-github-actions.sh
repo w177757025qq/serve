@@ -13,6 +13,7 @@ if [[ -z "$USER_PASS" ]]; then
 fi
 echo "### Install ngrok ###"
 
+
 # 【官网地址】https://download.ngrok.com/linux?tab=download
 # #【报错版本过老】
 # wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
