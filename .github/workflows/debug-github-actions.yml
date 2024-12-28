@@ -45,10 +45,10 @@ jobs:
         NGROK_TOKEN: 2pEUiN2MFjGoETxYVo1wpu5nqjS_7o8wFUpFsDnTJynByYm4i
         # 【设置SSH登陆的密码】必须要有否则无法登陆
         USER_PASS: wth000
-     #长期运行
+     #长期运行【其实可以更长时间，但是github按说是6小时自动停止】
      - name: Don't kill
-       run: sleep 24h
+       run: sleep 6h
      #报错继续运行
      - name: Don't kill if false
        if: ${{ failure() }}
-       run: sleep 24h
+       run: sleep 6h
