@@ -1,5 +1,6 @@
 name: Debugging with SSH
 on: 
+
   push:
     branches: [ "main" ]
   pull_request:
