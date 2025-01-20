@@ -1,5 +1,4 @@
 name: Debugging with SSH
-
 on: 
   push:
     branches: [ "main" ]
